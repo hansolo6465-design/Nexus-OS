@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="green">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NEXUS-OS // Command Terminal</title>
+<!-- CODEPEN: delete this whole <head> and the <html>/<body> tags. Paste only what is inside <body> (without the <script> tag) into the HTML panel. -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="rain"></canvas>
+
+<div id="screen" class="off">
+  <header id="hud">
+    <div class="brand glitch" data-text="NEXUS-OS v4.77">NEXUS-OS v4.77</div>
+    <div class="meters">
+      <div class="m"><span>CPU</span><i><b id="mCpu"></b></i></div>
+      <div class="m"><span>NET</span><i><b id="mNet"></b></i></div>
+      <div class="m alert"><span>TRACE</span><i><b id="mAlert"></b></i></div>
+    </div>
+    <div class="tools">
+      <button id="tScan" class="on" title="CRT scanlines">CRT</button>
+      <button id="tRain" title="Matrix rain">RAIN</button>
+      <button id="tTheme" title="Green / Amber">AMBER</button>
+      <button id="tSnd" class="on" title="Sound on/off">SND</button>
+      <button id="tPwr" title="Power off">⏻</button>
+      <span id="clock" class="flick"></span>
+    </div>
+  </header>
+
+  <main id="grid">
+    <!-- 1. COMMAND CONSOLE -->
+    <section class="panel" id="pCon">
+      <h2><span class="flick">■ COMMAND CONSOLE</span><small id="streamState">STREAM:ON</small></h2>
+      <div id="out"></div>
+      <div id="cmdline"><span id="ps1">root@nexus:~#</span><input id="cmd" autocomplete="off" spellcheck="false" autocapitalize="off" placeholder="type 'help'"></div>
+      <div class="chips">
+        <button data-run="help">help</button>
+        <button data-run="scan">scan</button>
+        <button data-fill="hack ">hack</button>
+        <button data-fill="decrypt ">decrypt</button>
+        <button data-run="override">override</button>
+      </div>
+    </section>
+
+    <!-- 2. ENCRYPTED VAULT -->
+    <section class="panel" id="pVault">
+      <h2><span>▣ ENCRYPTED VAULT</span><small id="vaultState"></small></h2>
+      <ul id="files"></ul>
+      <div id="viewer"><p class="dim">SELECT A FILE. CLASSIFIED MATERIAL REQUIRES A 4-DIGIT PIN.</p></div>
+      <div id="pin" hidden>
+        <div class="pbox">
+          <div id="pinTitle">ENTER PIN</div>
+          <div id="pinHint" class="dim"></div>
+          <div id="pinDots"><i></i><i></i><i></i><i></i></div>
+          <div id="pinMsg" class="err"></div>
+          <div id="keys"></div>
+          <button id="pinCancel">CANCEL</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. AUDIO VISUALIZER -->
+    <section class="panel" id="pAudio">
+      <h2><span>♫ SYNTHWAVE // NIGHT CITY DRIVE</span><small id="bpmV">100 BPM</small></h2>
+      <div class="cwrap"><canvas id="viz"></canvas></div>
+      <div class="ctrls">
+        <button id="aPlay">▶ PLAY</button>
+        <label>VOL<input type="range" id="aVol" min="0" max="100" value="60"></label>
+        <label>TEMPO<input type="range" id="aBpm" min="70" max="140" value="100"></label>
+      </div>
+      <div class="eq">
+        <label>LOW<input type="range" data-eq min="-12" max="12" value="0"></label>
+        <label>MID<input type="range" data-eq min="-12" max="12" value="0"></label>
+        <label>HIGH<input type="range" data-eq min="-12" max="12" value="0"></label>
+      </div>
+    </section>
+
+    <!-- 4. NODE MAP -->
+    <section class="panel" id="pMap">
+      <h2><span>◎ GLOBAL NODE MAP</span><small id="mapInfo"></small></h2>
+      <div class="cwrap"><canvas id="radar"></canvas></div>
+      <div id="card"></div>
+    </section>
+  </main>
+
+  <footer id="tick"><span>GHOSTNET UPLINK STABLE // ENCRYPTION AES-512 // ALL OPERATORS REMAIN ANONYMOUS // TRACE LEVEL MONITORED // NEVER TRUST THE RAIN // SIGNAL INTEGRITY 99.7% // </span></footer>
+</div>
+
+<div id="power"><button id="pOn">⏻</button><p>CLICK TO POWER ON</p><p class="dim">AUDIO REQUIRES A USER INTERACTION</p></div>
+<div id="scan"></div><div id="vig"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
