@@ -115,4 +115,4 @@ body.noscan #scan,body.noscan #vig{display:none}
   #screen{height:auto;min-height:100vh}
   #grid{grid-template-columns:1fr;grid-template-rows:none;grid-template-areas:"con" "vault" "audio" "map"}
   .panel{min-height:380px}#out{min-height:220px}
-    }
+}
